@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uts_pbol_2020130024.FXML_MenuController">
+   <children>
+      <ImageView fitHeight="606.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/menu2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="game1btn" layoutX="31.0" layoutY="220.0" mnemonicParsing="false" onAction="#game1klik" prefHeight="80.0" prefWidth="225.0" text="Game 1" textFill="#a80000" translateX="1.0">
+         <font>
+            <Font name="Snap ITC" size="40.0" />
+         </font>
+         <rotationAxis>
+            <Point3D x="1.0" z="1.0" />
+         </rotationAxis></Button>
+      <Button fx:id="game2btn" layoutX="544.0" layoutY="220.0" mnemonicParsing="false" onAction="#game2klik" prefHeight="80.0" prefWidth="225.0" text="Game 2" textFill="#a67900">
+         <font>
+            <Font name="Snap ITC" size="40.0" />
+         </font>
+      </Button>
+      <Button fx:id="game5btn" layoutX="544.0" layoutY="440.0" mnemonicParsing="false" onAction="#game5klik" prefHeight="80.0" prefWidth="225.0" text="Game 5" textFill="#0079a6">
+         <font>
+            <Font name="Snap ITC" size="40.0" />
+         </font>
+      </Button>
+      <Button fx:id="game4btn" layoutX="32.0" layoutY="440.0" mnemonicParsing="false" onAction="#game4klik" text="Game 4" textFill="#00a61f">
+         <font>
+            <Font name="Snap ITC" size="40.0" />
+         </font>
+      </Button>
+      <Button fx:id="game3btn" layoutX="288.0" layoutY="329.0" mnemonicParsing="false" onAction="#game3klik" prefHeight="80.0" prefWidth="225.0" text="Game 3" textFill="#6400a6">
+         <font>
+            <Font name="Snap ITC" size="40.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uts_pbol_2020130024.FXML_PlayerController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/name1.png" />
+         </image></ImageView>
+      <TableView fx:id="tbvplayer" layoutX="41.0" layoutY="167.0" prefHeight="398.0" prefWidth="465.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button fx:id="createbtn" layoutX="545.0" layoutY="174.0" mnemonicParsing="false" onAction="#createklik" prefHeight="61.0" prefWidth="188.0" text="Create New">
+         <font>
+            <Font name="Elephant" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="playbtn" layoutX="545.0" layoutY="504.0" mnemonicParsing="false" onAction="#playklik" prefHeight="61.0" prefWidth="188.0" text="Select &amp; Play!">
+         <font>
+            <Font name="Elephant" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="deletebtn" layoutX="545.0" layoutY="336.0" mnemonicParsing="false" onAction="#deleteklik" prefHeight="61.0" prefWidth="188.0" text="Delete Name">
+         <font>
+            <Font name="Elephant" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="editbtn" layoutX="545.0" layoutY="257.0" mnemonicParsing="false" onAction="#editklik" prefHeight="61.0" prefWidth="188.0" text="Edit Name">
+         <font>
+            <Font name="Elephant" size="22.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

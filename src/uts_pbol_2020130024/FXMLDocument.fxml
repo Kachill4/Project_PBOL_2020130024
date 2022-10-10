@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uts_pbol_2020130024.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/menu1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="playbtn" layoutX="246.0" layoutY="247.0" mnemonicParsing="false" onAction="#playklik" prefHeight="106.0" prefWidth="309.0" text="Play" textFill="#6543ab">
+         <font>
+            <Font name="Goudy Stout" size="49.0" />
+         </font></Button>
+      <Button fx:id="exitbtn" layoutX="337.0" layoutY="509.0" mnemonicParsing="false" onAction="#exitklik" prefHeight="43.0" prefWidth="126.0" text="exit" textFill="#a11111">
+         <font>
+            <Font name="Goudy Stout" size="20.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="menupane" layoutX="300.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="historybtn" layoutX="246.0" layoutY="409.0" mnemonicParsing="false" onAction="#historyklik" prefHeight="31.0" prefWidth="309.0" text="History Player" />
+   </children>
+</AnchorPane>
