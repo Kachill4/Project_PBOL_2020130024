@@ -48,7 +48,7 @@ public class FXML_PlayerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //showdata(); 
+        showdata(); 
     }   
     
     public void showdata(){
@@ -57,7 +57,11 @@ public class FXML_PlayerController implements Initializable {
             tbvplayer.getColumns().clear();
             tbvplayer.getItems().clear();
             
-            TableColumn col=new TableColumn("Name");
+            TableColumn col=new TableColumn("PlayerId");
+            col.setCellValueFactory(new PropertyValueFactory<PlayerModel, Integer>("PlayerId"));
+            tbvplayer.getColumns().addAll(col);
+            
+            col=new TableColumn("Name");
             col.setCellValueFactory(new PropertyValueFactory<PlayerModel, String>("Name"));
             tbvplayer.getColumns().addAll(col);
             
@@ -95,10 +99,45 @@ public class FXML_PlayerController implements Initializable {
 
     @FXML
     private void deleteklik(ActionEvent event) {
+        PlayerModel s= new PlayerModel();       
+        s=tbvplayer.getSelectionModel().getSelectedItem();
+        Alert a=new Alert(Alert.AlertType.CONFIRMATION,"Mau dihapus?",               
+                ButtonType.YES,ButtonType.NO);
+        a.showAndWait();
+        if(a.getResult()==ButtonType.YES){
+            if(FXMLDocumentController.dtplayer.delete(String.valueOf(s.getPlayerId()))){
+                Alert b=new Alert(Alert.AlertType.INFORMATION,
+                        "Data berhasil dihapus", ButtonType.OK);
+                b.showAndWait();
+            } else {    
+                Alert b=new Alert(Alert.AlertType.ERROR,
+                        "Data gagal dihapus", ButtonType.OK);
+                b.showAndWait();
+            }
+            showdata();            
+        } 
     }
 
     @FXML
     private void editklik(ActionEvent event) {
+        PlayerModel s= new PlayerModel();
+        s=tbvplayer.getSelectionModel().getSelectedItem();
+        try{
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("FXML_InputPlayer.fxml"));    
+            Parent root = (Parent)loader.load();
+            FXML_InputPlayerController isidt=(FXML_InputPlayerController)loader.getController();
+            isidt.execute(s);                
+            Scene scene = new Scene(root);
+            Stage stg=new Stage();
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.showAndWait();
+        } catch (IOException e){   
+            e.printStackTrace();   
+        }
+        showdata();  
     }
     
 }

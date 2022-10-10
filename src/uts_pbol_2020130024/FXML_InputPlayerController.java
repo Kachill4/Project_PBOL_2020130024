@@ -27,6 +27,10 @@ public class FXML_InputPlayerController implements Initializable {
     private Button btnsimpan;
     @FXML
     private Button btnbatal;
+    @FXML
+    private TextField txtid;
+    @FXML
+    private Button btnbatal1;
 
     /**
      * Initializes the controller class.
@@ -39,6 +43,7 @@ public class FXML_InputPlayerController implements Initializable {
     @FXML
     private void simpanklik(ActionEvent event) {
         PlayerModel s=new PlayerModel();
+        s.setPlayerId(Integer.parseInt(txtid.getText()));
         s.setName(txtnama.getText());
         FXMLDocumentController.dtplayer.setPlayerModel(s);
 
@@ -48,12 +53,12 @@ public class FXML_InputPlayerController implements Initializable {
                 Alert a=new Alert(Alert.AlertType.INFORMATION,"Data berhasil diubah",ButtonType.OK);
                 a.showAndWait();   
                 txtnama.setEditable(true);        
-                batalklik(event);                
+                batalklik1(event);                
             } else {
                Alert a=new Alert(Alert.AlertType.ERROR,"Data gagal diubah",ButtonType.OK);
                a.showAndWait();                    
             }
-        }else if(FXMLDocumentController.dtplayer.validasi(s.getName())<=0){
+        }else if(FXMLDocumentController.dtplayer.validasi(s.getPlayerId())<=0){
             if(FXMLDocumentController.dtplayer.insert()){
                Alert a=new Alert(Alert.AlertType.INFORMATION,"Data berhasil disimpan",ButtonType.OK);
                a.showAndWait();            
@@ -74,15 +79,22 @@ public class FXML_InputPlayerController implements Initializable {
     public void execute(PlayerModel d){
         if(!d.getName().isEmpty()){
           editdata=true;
+          txtid.setText(String.valueOf(d.getPlayerId()));
           txtnama.setText(d.getName());
-          txtnama.setEditable(false);
+          txtid.setEditable(false);
           txtnama.requestFocus();
+          btnbatal.setDisable(true);
         }
     }
 
     
     @FXML
     private void batalklik(ActionEvent event) {
+        txtid.clear();
+    }
+
+    @FXML
+    private void batalklik1(ActionEvent event) {
         txtnama.clear();
     }
     

@@ -52,8 +52,9 @@ public class DBPlayer {
         try {         
             con.bukaKoneksi();
             con.preparedStatement = con.dbKoneksi.prepareStatement(
-                    "insert into player (Name) values (?)");
-            con.preparedStatement.setString(1, getPlayerModel().getName());
+                    "insert into player (PlayerId, Name) values (?,?)");
+            con.preparedStatement.setInt(1, getPlayerModel().getPlayerId());
+            con.preparedStatement.setString(2, getPlayerModel().getName());
             con.preparedStatement.executeUpdate();
             berhasil = true;
         } catch (Exception e) {            
@@ -72,7 +73,7 @@ public class DBPlayer {
         try {
             con.bukaKoneksi();
             con.preparedStatement = con.dbKoneksi.prepareStatement(
-                    "update player set Name = ? ; ");
+                    "update player set Name = ? where PlayerId = ?; ");
             con.preparedStatement.setString(1, getPlayerModel().getName());
             con.preparedStatement.executeUpdate();
             berhasil = true;
@@ -105,13 +106,14 @@ public class DBPlayer {
         }
     }
     
-    public int validasi(String nomor) {
+    public int validasi(int nomor) {
         int val = 0;
         try {  
             Koneksi con = new Koneksi();     
             con.bukaKoneksi();   
             con.statement = con.dbKoneksi.createStatement();
-            ResultSet rs = con.statement.executeQuery("select count(*) as jml from player where PlayerId = '" + nomor + "'");
+            ResultSet rs = con.statement.executeQuery(
+                    "select count(*) as jml from player where PlayerId = '" + nomor + "'");
             while (rs.next()) {   
                 val = rs.getInt("jml");            
             }

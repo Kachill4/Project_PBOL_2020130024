@@ -8,23 +8,29 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uts_pbol_2020130024.FXML_InputPlayerController">
+<AnchorPane id="AnchorPane" prefHeight="254.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uts_pbol_2020130024.FXML_InputPlayerController">
    <children>
-      <ImageView fitHeight="208.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="274.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/writename.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtnama" layoutX="22.0" layoutY="85.0" prefHeight="31.0" prefWidth="207.0" promptText="Write Here . . ." />
-      <Button fx:id="btnsimpan" layoutX="115.0" layoutY="134.0" mnemonicParsing="false" onAction="#simpanklik" prefHeight="45.0" prefWidth="72.0" text="OK">
+      <TextField fx:id="txtid" layoutX="20.0" layoutY="66.0" prefHeight="31.0" prefWidth="207.0" promptText="Write Here . . ." />
+      <Button fx:id="btnsimpan" layoutX="114.0" layoutY="198.0" mnemonicParsing="false" onAction="#simpanklik" prefHeight="45.0" prefWidth="72.0" text="OK">
          <font>
             <Font name="Century Gothic Bold" size="23.0" />
          </font>
       </Button>
-      <Button fx:id="btnbatal" layoutX="244.0" layoutY="89.0" mnemonicParsing="false" onAction="#batalklik" text="Reset">
+      <Button fx:id="btnbatal" layoutX="242.0" layoutY="70.0" mnemonicParsing="false" onAction="#batalklik" text="Reset">
          <font>
             <Font name="ArtifaktElement-Regular" size="10.0" />
          </font>
       </Button>
+      <Button fx:id="btnbatal1" layoutX="241.0" layoutY="155.0" mnemonicParsing="false" onAction="#batalklik1" text="Reset">
+         <font>
+            <Font name="ArtifaktElement-Regular" size="10.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtnama" layoutX="19.0" layoutY="151.0" prefHeight="31.0" prefWidth="207.0" promptText="Write Here . . ." />
    </children>
 </AnchorPane>
