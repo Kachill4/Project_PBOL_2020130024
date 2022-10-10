@@ -43,5 +43,10 @@
             <Font name="Snap ITC" size="40.0" />
          </font>
       </Button>
+      <Button fx:id="backbtn" layoutX="716.0" layoutY="25.0" mnemonicParsing="false" onAction="#backklik" text="Back">
+         <font>
+            <Font name="Snap ITC" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

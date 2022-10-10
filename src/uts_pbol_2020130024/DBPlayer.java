@@ -75,6 +75,7 @@ public class DBPlayer {
             con.preparedStatement = con.dbKoneksi.prepareStatement(
                     "update player set Name = ? where PlayerId = ?; ");
             con.preparedStatement.setString(1, getPlayerModel().getName());
+            con.preparedStatement.setInt(2, getPlayerModel().getPlayerId());
             con.preparedStatement.executeUpdate();
             berhasil = true;
         } catch (Exception e) {

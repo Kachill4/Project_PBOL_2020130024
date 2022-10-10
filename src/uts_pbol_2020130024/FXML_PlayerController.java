@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -41,6 +42,9 @@ public class FXML_PlayerController implements Initializable {
     private Button deletebtn;
     @FXML
     private Button editbtn;
+    
+    private Stage disStage;
+    Stage stage;
 
     /**
      * Initializes the controller class.
@@ -95,6 +99,18 @@ public class FXML_PlayerController implements Initializable {
 
     @FXML
     private void playklik(ActionEvent event) {
+//        PlayerModel s= new PlayerModel();       
+//        s=tbvplayer.getSelectionModel().getSelectedItem();
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("FXML_Menu.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
     }
 
     @FXML
@@ -105,7 +121,7 @@ public class FXML_PlayerController implements Initializable {
                 ButtonType.YES,ButtonType.NO);
         a.showAndWait();
         if(a.getResult()==ButtonType.YES){
-            if(FXMLDocumentController.dtplayer.delete(String.valueOf(s.getPlayerId()))){
+            if(FXMLDocumentController.dtplayer.delete(s.getName())){
                 Alert b=new Alert(Alert.AlertType.INFORMATION,
                         "Data berhasil dihapus", ButtonType.OK);
                 b.showAndWait();

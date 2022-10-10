@@ -26,5 +26,6 @@
             <Font name="Geometr706 BlkCn BT Black" size="30.0" />
          </font>
       </Button>
+      <Button fx:id="backbtn" layoutX="27.0" layoutY="546.0" mnemonicParsing="false" onAction="#backklik" text="Back" />
    </children>
 </AnchorPane>
