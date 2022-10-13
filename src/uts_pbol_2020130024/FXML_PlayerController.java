@@ -45,6 +45,8 @@ public class FXML_PlayerController implements Initializable {
     
     private Stage disStage;
     Stage stage;
+    @FXML
+    private Button backbtn;
 
     /**
      * Initializes the controller class.
@@ -154,6 +156,19 @@ public class FXML_PlayerController implements Initializable {
             e.printStackTrace();   
         }
         showdata();  
+    }
+
+    @FXML
+    private void backklik(ActionEvent event) {
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
 }

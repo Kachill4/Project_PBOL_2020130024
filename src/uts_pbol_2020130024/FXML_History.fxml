@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uts_pbol_2020130024.FXML_HistoryController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/hs.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tbvhistory" layoutX="72.0" layoutY="192.0" prefHeight="330.0" prefWidth="656.0" />
+      <Button fx:id="backbtn" layoutX="638.0" layoutY="536.0" mnemonicParsing="false" onAction="#backklik" prefHeight="50.0" prefWidth="127.0" text="Back">
+         <font>
+            <Font name="Segoe Print Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

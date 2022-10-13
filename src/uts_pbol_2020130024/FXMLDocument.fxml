@@ -25,7 +25,7 @@
          </font>
       </Button>
       <AnchorPane fx:id="menupane" layoutX="300.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="historybtn" layoutX="246.0" layoutY="409.0" mnemonicParsing="false" onAction="#historyklik" prefHeight="31.0" prefWidth="309.0" text="History Player" textFill="#179994">
+      <Button fx:id="historybtn" layoutX="246.0" layoutY="409.0" mnemonicParsing="false" onAction="#historyklik" prefHeight="31.0" prefWidth="309.0" text="High Score Player" textFill="#0e59cf">
          <font>
             <Font name="Colonna MT" size="27.0" />
          </font></Button>

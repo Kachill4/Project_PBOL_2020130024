@@ -27,6 +27,7 @@ import javafx.stage.Stage;
  */
 public class FXMLDocumentController implements Initializable {
     public static DBPlayer dtplayer = new DBPlayer();
+    public static DBHistory dthistory = new DBHistory();
     
     @FXML
     private Button playbtn;
@@ -37,6 +38,7 @@ public class FXMLDocumentController implements Initializable {
     Stage stage;
     @FXML
     private AnchorPane menupane;
+    
     @FXML
     private Button historybtn;
 
@@ -77,6 +79,15 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void historyklik(ActionEvent event) {
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("FXML_History.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     
 }
