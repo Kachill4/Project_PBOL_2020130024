@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -47,6 +48,10 @@ public class FXML_PlayerController implements Initializable {
     Stage stage;
     @FXML
     private Button backbtn;
+    @FXML
+    private Label displayhello;
+    @FXML
+    private Label displaynama;
 
     /**
      * Initializes the controller class.
@@ -59,6 +64,7 @@ public class FXML_PlayerController implements Initializable {
     
     public void showdata(){
         ObservableList<PlayerModel> data=FXMLDocumentController.dtplayer.Load();
+       //tbvplayer.setItems(tbvplayer.getSelectionModel().selectedIndexProperty().intValue());
         if(data!=null){            
             tbvplayer.getColumns().clear();
             tbvplayer.getItems().clear();
@@ -75,8 +81,15 @@ public class FXML_PlayerController implements Initializable {
         }else {
             Alert a=new Alert(Alert.AlertType.ERROR,"Data kosong",ButtonType.OK);
             a.showAndWait();
-            tbvplayer.getScene().getWindow().hide();;
+            tbvplayer.getScene().getWindow().hide();
         } 
+    }
+    
+    public void tampilnama(){
+         PlayerModel np = new PlayerModel();
+        np = tbvplayer.getSelectionModel().getSelectedItem();
+        displayhello.setText("Hello!!!");
+        displaynama.setText(np.getName());
     }
     
 
@@ -96,7 +109,6 @@ public class FXML_PlayerController implements Initializable {
             e.printStackTrace();   
         }
         showdata();
-        
     }
 
     @FXML

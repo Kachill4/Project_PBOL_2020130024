@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <TextField fx:id="txtid" layoutX="20.0" layoutY="66.0" prefHeight="31.0" prefWidth="207.0" promptText="Write Here . . ." />
-      <Button fx:id="btnsimpan" layoutX="114.0" layoutY="198.0" mnemonicParsing="false" onAction="#simpanklik" prefHeight="45.0" prefWidth="72.0" text="OK">
+      <Button fx:id="btnsimpan" layoutX="51.0" layoutY="198.0" mnemonicParsing="false" onAction="#simpanklik" prefHeight="45.0" prefWidth="72.0" text="OK">
          <font>
             <Font name="Century Gothic Bold" size="23.0" />
          </font>
@@ -32,5 +32,10 @@
          </font>
       </Button>
       <TextField fx:id="txtnama" layoutX="19.0" layoutY="151.0" prefHeight="31.0" prefWidth="207.0" promptText="Write Here . . ." />
+      <Button fx:id="btncancel" layoutX="147.0" layoutY="203.0" mnemonicParsing="false" onAction="#cancelklik" prefHeight="35.0" prefWidth="79.0" text="Cancel">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

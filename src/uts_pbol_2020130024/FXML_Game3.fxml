@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="uts_pbol_2020130024.FXML_Game3Controller">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="836.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/game3.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btntrue" layoutX="155.0" layoutY="423.0" mnemonicParsing="false" onAction="#trueklik" prefHeight="101.0" prefWidth="203.0" style="-fx-background-color: #12b854;" text="True" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="60.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnfalse" layoutX="428.0" layoutY="423.0" mnemonicParsing="false" onAction="#falseklik" prefHeight="116.0" prefWidth="217.0" style="-fx-background-color: #d4360f;" text="False" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="60.0" />
+         </font>
+      </Button>
+      <Label fx:id="soal3" layoutX="223.0" layoutY="228.0" prefHeight="144.0" prefWidth="355.0" text="2+2 = 9" textAlignment="CENTER">
+         <font>
+            <Font name="Freehand521 BT" size="72.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -15,19 +15,19 @@
             <Image url="@../assets/menu1.png" />
          </image>
       </ImageView>
-      <Button fx:id="playbtn" layoutX="246.0" layoutY="247.0" mnemonicParsing="false" onAction="#playklik" prefHeight="106.0" prefWidth="309.0" text="Play" textFill="#6543ab">
-         <font>
-            <Font name="Goudy Stout" size="49.0" />
-         </font></Button>
       <Button fx:id="exitbtn" layoutX="337.0" layoutY="509.0" mnemonicParsing="false" onAction="#exitklik" prefHeight="43.0" prefWidth="126.0" text="exit" textFill="#a11111">
          <font>
             <Font name="Goudy Stout" size="20.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="menupane" layoutX="300.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" />
       <Button fx:id="historybtn" layoutX="246.0" layoutY="409.0" mnemonicParsing="false" onAction="#historyklik" prefHeight="31.0" prefWidth="309.0" text="High Score Player" textFill="#0e59cf">
          <font>
             <Font name="Colonna MT" size="27.0" />
          </font></Button>
+      <Button fx:id="playbtn" layoutX="262.0" layoutY="260.0" mnemonicParsing="false" onAction="#playklik" prefHeight="136.0" prefWidth="276.0" text="Play">
+         <font>
+            <Font name="Snap ITC" size="69.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

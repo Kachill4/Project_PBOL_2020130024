@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uts_pbol_2020130024.FXML_Game1Controller">
    <children>
@@ -15,5 +15,31 @@
             <Image url="@../assets/1.png" />
          </image>
       </ImageView>
+      <Label fx:id="txtsoal" layoutX="154.0" layoutY="282.0" text="2 + 2 = " textAlignment="RIGHT">
+         <font>
+            <Font name="Georgia Bold" size="100.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfjawab" layoutX="558.0" layoutY="307.0" onKeyPressed="#jwbklik" prefHeight="65.0" prefWidth="129.0" />
+      <Label fx:id="label" layoutX="605.0" layoutY="382.0" text="Label" />
+      <Label fx:id="timeLeft" layoutX="728.0" layoutY="74.0" text="60">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+      <Label fx:id="score" layoutX="412.0" layoutY="184.0" text="100">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="716.0" layoutY="41.0" text="Time" textFill="#d73030">
+         <font>
+            <Font name="Goudy Old Style Bold" size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="323.0" layoutY="196.0" text="Score" textFill="#17a12e">
+         <font>
+            <Font name="Goudy Old Style Bold" size="27.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

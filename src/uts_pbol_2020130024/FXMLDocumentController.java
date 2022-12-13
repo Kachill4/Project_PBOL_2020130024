@@ -36,6 +36,7 @@ public class FXMLDocumentController implements Initializable {
     
     private Stage disStage;
     Stage stage;
+    
     @FXML
     private AnchorPane menupane;
     
@@ -52,6 +53,7 @@ public class FXMLDocumentController implements Initializable {
     private void playklik(ActionEvent event) throws IOException {
         try{
             Parent root = FXMLLoader.load(getClass().getResource("FXML_Player.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("FXML_Player.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);

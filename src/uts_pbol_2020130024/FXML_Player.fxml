@@ -36,5 +36,15 @@
          </font>
       </Button>
       <Button fx:id="backbtn" layoutX="719.0" layoutY="24.0" mnemonicParsing="false" onAction="#backklik" text="Back" />
+      <Label fx:id="displayhello" layoutX="608.0" layoutY="417.0" text="Hello">
+         <font>
+            <Font name="Harrington" size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="displaynama" layoutX="545.0" layoutY="450.0" text="#Your_Name">
+         <font>
+            <Font name="Harrington" size="33.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
