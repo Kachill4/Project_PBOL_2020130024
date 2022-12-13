@@ -15,36 +15,30 @@
             <Image url="@../assets/name1.png" />
          </image></ImageView>
       <TableView fx:id="tbvplayer" layoutX="41.0" layoutY="167.0" prefHeight="398.0" prefWidth="465.0" />
-      <Button fx:id="createbtn" layoutX="545.0" layoutY="174.0" mnemonicParsing="false" onAction="#createklik" prefHeight="61.0" prefWidth="188.0" text="Create New">
+      <Button fx:id="createbtn" layoutX="545.0" layoutY="174.0" mnemonicParsing="false" onAction="#createklik" prefHeight="45.0" prefWidth="188.0" text="Create New">
          <font>
-            <Font name="Elephant" size="22.0" />
+            <Font name="Elephant" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="playbtn" layoutX="545.0" layoutY="504.0" mnemonicParsing="false" onAction="#playklik" prefHeight="61.0" prefWidth="188.0" text="Select &amp; Play!">
+      <Button fx:id="playbtn" layoutX="530.0" layoutY="376.0" mnemonicParsing="false" onAction="#playklik" prefHeight="90.0" prefWidth="220.0" style="-fx-background-color: #d5fccc;" text="Yes, It's Me" textFill="#0e901f">
          <font>
-            <Font name="Elephant" size="22.0" />
+            <Font name="Elephant" size="30.0" />
          </font>
       </Button>
-      <Button fx:id="deletebtn" layoutX="545.0" layoutY="336.0" mnemonicParsing="false" onAction="#deleteklik" prefHeight="61.0" prefWidth="188.0" text="Delete Name">
+      <Button fx:id="deletebtn" layoutX="546.0" layoutY="300.0" mnemonicParsing="false" onAction="#deleteklik" prefHeight="45.0" prefWidth="188.0" text="Delete Name">
          <font>
-            <Font name="Elephant" size="22.0" />
+            <Font name="Elephant" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="editbtn" layoutX="545.0" layoutY="257.0" mnemonicParsing="false" onAction="#editklik" prefHeight="61.0" prefWidth="188.0" text="Edit Name">
+      <Button fx:id="editbtn" layoutX="545.0" layoutY="237.0" mnemonicParsing="false" onAction="#editklik" prefHeight="45.0" prefWidth="188.0" text="Edit Name">
          <font>
-            <Font name="Elephant" size="22.0" />
+            <Font name="Elephant" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="backbtn" layoutX="719.0" layoutY="24.0" mnemonicParsing="false" onAction="#backklik" text="Back" />
-      <Label fx:id="displayhello" layoutX="608.0" layoutY="417.0" text="Hello">
+      <Button fx:id="backbtn" layoutX="554.0" layoutY="486.0" mnemonicParsing="false" onAction="#backklik" prefHeight="45.0" prefWidth="172.0" style="-fx-background-color: #fcd4cc;" text="Maybe Later" textFill="#e1210b">
          <font>
-            <Font name="Harrington" size="27.0" />
+            <Font name="Elephant" size="20.0" />
          </font>
-      </Label>
-      <Label fx:id="displaynama" layoutX="545.0" layoutY="450.0" text="#Your_Name">
-         <font>
-            <Font name="Harrington" size="33.0" />
-         </font>
-      </Label>
+      </Button>
    </children>
 </AnchorPane>

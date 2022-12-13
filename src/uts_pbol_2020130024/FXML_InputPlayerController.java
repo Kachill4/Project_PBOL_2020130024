@@ -62,6 +62,7 @@ public class FXML_InputPlayerController implements Initializable {
         s.setPlayerId(Integer.parseInt(txtid.getText()));
         s.setName(txtnama.getText());
         FXMLDocumentController.dtplayer.setPlayerModel(s);
+        btnsimpan.getScene().getWindow().hide();
 
         //UPDATE
         if (editdata) {
@@ -70,33 +71,22 @@ public class FXML_InputPlayerController implements Initializable {
                 a.showAndWait();
                 txtnama.setEditable(true);
                 batalklik1(event);
-                stage = (Stage) menupane.getScene().getWindow();
-            stage.close();
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal diubah", ButtonType.OK);
                 a.showAndWait();
-                stage = (Stage) menupane.getScene().getWindow();
-            stage.close();
             }
         } else if (FXMLDocumentController.dtplayer.validasi(s.getPlayerId()) <= 0) {
             if (FXMLDocumentController.dtplayer.insert()) {
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil disimpan", ButtonType.OK);
-                a.showAndWait();
-                batalklik(event);stage = (Stage) menupane.getScene().getWindow();
-            stage.close();
-                
+                a.showAndWait();                
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal disimpan", ButtonType.OK);
                 a.showAndWait();
-                stage = (Stage) menupane.getScene().getWindow();
-            stage.close();
             }
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR, "Data sudah ada", ButtonType.OK);
             a.showAndWait();
             txtnama.requestFocus();
-            stage = (Stage) menupane.getScene().getWindow();
-            stage.close();
         }
             //cancelklik(event);
     }

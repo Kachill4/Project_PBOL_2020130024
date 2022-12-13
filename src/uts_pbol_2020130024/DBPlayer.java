@@ -25,16 +25,19 @@ public class DBPlayer {
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             ResultSet rs = con.statement.executeQuery(
-                    "Select PlayerId, Name, Gtwo, Gfour, Gfive from player"
+                    "Select PlayerId, Name, Game1, Game2, Game3, Game4, Game5 from player"
             );
             int i = 1;
             while (rs.next()) {
                 PlayerModel d=new PlayerModel();
                 d.setPlayerId(rs.getInt("PlayerId"));
                 d.setName(rs.getString("Name"));
-                d.setGtwo(rs.getInt("Gtwo"));
-                d.setGfour(rs.getInt("Gfour"));
-                d.setGfive(rs.getInt("Gfive"));
+                d.setGame1(rs.getInt("Game1"));
+                d.setGame2(rs.getInt("Game2"));
+                d.setGame3(rs.getInt("Game3"));
+                d.setGame4(rs.getInt("Game4"));
+                d.setGame5(rs.getInt("Game5"));
+                
                 TableData.add(d);
                 i++;
             }

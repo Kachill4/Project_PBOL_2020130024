@@ -32,6 +32,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -48,25 +49,23 @@ public class FXML_Game1Controller implements Initializable {
     @FXML
     private TextField tfjawab;
     @FXML
-    private Label timeLeft;
-    
+    private Label txtscore;
+    @FXML
+    private Label txttime;
+
     private Stage disStage;
     Stage stage;
 
-    /**
-     * Initializes the controller class.
-     */
     int x = number(1, 10);
     int y = number(1, 10);
     int jawab;
+
     String operator = operator();
     int answer = solve(x, y, operator);
     String question = x + " " + operator + " " + y + " = ";
-    int counter = 10;
-//    Boolean isIt = false;
 
+    int counter = 10;
     Timer t = new Timer();
-//    int second;
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy,hh:mm:ss");
 
     @Override
@@ -78,23 +77,55 @@ public class FXML_Game1Controller implements Initializable {
             answer = solve(x, y, operator);
         }
         txtsoal.setText(question);
-
         timer();
-
+//        
     }
+    boolean status = false;
 
     public void timer() {
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 Platform.runLater(() -> {
-                    counter--;
-//                    timeLeft.Integer.parseInt(counter);
-                    timeLeft.setText(String.valueOf(counter));
+                    txttime.setText(String.valueOf(counter));
+                    int i = 0;
+                    if (counter > 0) {
+                        counter--;
+                    } else if (status == true) {
+                        txttime.setText(String.valueOf(i));
+                    } else if (counter == 0 && status == false) {
+                        status = true;
+                        txttime.setText(String.valueOf(i));
+                        Alert al = new Alert(Alert.AlertType.ERROR,
+                                "Waktunya Sudah Habis" + "\nKamu mendapatkan " + poin + " poin", ButtonType.OK);
+                        al.showAndWait();
+                        try {
+//                            Parent root = FXMLLoader.load(getClass().getResource("FXML_Menu.fxml"));
+//                            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                            Scene scene = new Scene(root);
+//                            stage.setScene(scene);
+//                            stage.show();
+
+                            txttime.getScene().getWindow().hide();
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_Menu.fxml"));
+                            Parent root = (Parent) loader.load();
+                            Scene scene = new Scene(root);
+                            Stage stg = new Stage();
+                            stg.initModality(Modality.APPLICATION_MODAL);
+                            stg.setResizable(false);
+                            stg.setIconified(false);
+                            stg.setScene(scene);
+                            stg.show();
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                 });
             }
-        }, 0, 1000);
 
+        }, 0, 1000);
     }
 
     public static int number(int max, int min) {
@@ -120,13 +151,13 @@ public class FXML_Game1Controller implements Initializable {
                 return -999;
         }
     }
+    int poin = 0;
 
     @FXML
     private void jwbklik(KeyEvent event) {
         int j = Integer.parseInt(tfjawab.getText());
         if (event.getCode().equals(KeyCode.ENTER)) {
             if (j == answer) {
-
                 x = number(1, 10);
                 y = number(1, 10);
                 operator = operator();
@@ -144,10 +175,12 @@ public class FXML_Game1Controller implements Initializable {
 
                 tfjawab.setText("");
                 tfjawab.requestFocus();
+                poin++;
 
+                txtscore.setText(String.valueOf(poin));
             } else {
                 Alert al = new Alert(Alert.AlertType.ERROR,
-                        "Jawaban Kamu Salah", ButtonType.OK);
+                        "Jawaban Kamu Salah" + "\nKamu mendapatkan " + poin + " poin", ButtonType.OK);
                 al.showAndWait();
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("FXML_Menu.fxml"));
@@ -160,6 +193,7 @@ public class FXML_Game1Controller implements Initializable {
                 }
             }
         }
+
     }
 
 }

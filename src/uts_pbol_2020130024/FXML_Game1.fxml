@@ -22,11 +22,11 @@
       </Label>
       <TextField fx:id="tfjawab" layoutX="558.0" layoutY="307.0" onKeyPressed="#jwbklik" prefHeight="65.0" prefWidth="129.0" />
       <Label fx:id="label" layoutX="605.0" layoutY="382.0" text="Label" />
-      <Label fx:id="timeLeft" layoutX="728.0" layoutY="74.0" text="60">
+      <Label fx:id="txttime" layoutX="728.0" layoutY="74.0" text="60">
          <font>
             <Font size="30.0" />
          </font></Label>
-      <Label fx:id="score" layoutX="412.0" layoutY="184.0" text="100">
+      <Label fx:id="txtscore" layoutX="412.0" layoutY="184.0" text="0">
          <font>
             <Font size="40.0" />
          </font>
