@@ -14,16 +14,26 @@ import java.sql.Time;
 public class HistoryModel {
     public int HistoryId, GameMode, PlayerId, Score;
     public Time Time;
-    private Date start;
+    public Date Date;
 
-    public Date getStart() {
-        return start;
+    public Date getDate() {
+        return Date;
     }
 
-    public void setStart(Date start) {
-        this.start = start;
+    public void setDate(Date Date) {
+        this.Date = Date;
     }
-
+//    private Date start;
+//
+//    public Date getStart() {
+//        return start;
+//    }
+//
+//    public void setStart(Date start) {
+//        this.start = start;
+//    }
+    
+////////History
     public int getHistoryId() {
         return HistoryId;
     }
@@ -32,6 +42,7 @@ public class HistoryModel {
         this.HistoryId = HistoryId;
     }
 
+////////GameMode
     public int getGameMode() {
         return GameMode;
     }
@@ -40,6 +51,7 @@ public class HistoryModel {
         this.GameMode = GameMode;
     }
 
+////////Player
     public int getPlayerId() {
         return PlayerId;
     }
@@ -47,7 +59,8 @@ public class HistoryModel {
     public void setPlayerId(int PlayerId) {
         this.PlayerId = PlayerId;
     }
-
+    
+////////Score
     public int getScore() {
         return Score;
     }
@@ -55,7 +68,8 @@ public class HistoryModel {
     public void setScore(int Score) {
         this.Score = Score;
     }
-
+    
+////////Time
     public Time getTime() {
         return Time;
     }

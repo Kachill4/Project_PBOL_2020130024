@@ -8,19 +8,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="uts_pbol_2020130024.FXML_MenuHistoryController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uts_pbol_2020130024.FXML_MenuHistoryController">
    <children>
       <ImageView fitHeight="610.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/hs.png" />
          </image>
       </ImageView>
-      <Button layoutX="136.0" layoutY="285.0" mnemonicParsing="false" text="GAME 1" textFill="#047218">
+      <Button fx:id="hg1btn" layoutX="123.0" layoutY="234.0" mnemonicParsing="false" onAction="#hg1klik" prefHeight="250.0" prefWidth="250.0" text="Game 1" textFill="#a80000">
          <font>
-            <Font name="Berlin Sans FB Demi Bold" size="52.0" />
+            <Font name="Snap ITC" size="40.0" />
          </font>
       </Button>
-      <Button layoutX="556.0" layoutY="294.0" mnemonicParsing="false" text="GAME 3" />
+      <Button fx:id="hg3btn" layoutX="427.0" layoutY="234.0" mnemonicParsing="false" onAction="#hg3klik" prefHeight="250.0" prefWidth="250.0" text="Game 3" textFill="#6400a6">
+         <font>
+            <Font name="Snap ITC" size="40.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

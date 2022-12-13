@@ -59,6 +59,7 @@ public class PlayerModel {
     public void setPlayerId(int PlayerId) {
         this.PlayerId = PlayerId;
     }
+    
     private String Name;
 
     public String getName() {
@@ -68,4 +69,8 @@ public class PlayerModel {
     public void setName(String Name) {
         this.Name = Name;
     }
+//
+//    void setPlayerId(Long id) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 }

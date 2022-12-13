@@ -32,7 +32,7 @@ public class DBHistory {
                 d.setHistoryId(rs.getInt("HistoryId"));
                 d.setGameMode(rs.getInt("GameMode"));
                 d.setPlayerId(rs.getInt("PlayerId"));
-                d.setStart(rs.getDate("Date"));
+                d.setDate(rs.getDate("Date"));
                 d.setTime(rs.getTime("Time"));
                 d.setGameMode(rs.getInt("Score"));
                 TableData.add(d);

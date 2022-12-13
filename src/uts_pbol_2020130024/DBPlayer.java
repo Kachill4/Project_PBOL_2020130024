@@ -14,14 +14,21 @@ import javafx.collections.ObservableList;
  * @author ASUS GAMING
  */
 public class DBPlayer {
-    private PlayerModel dt=new PlayerModel();    
-    public PlayerModel getPlayerModel(){ return(dt);}
-    public void setPlayerModel(PlayerModel s){ dt=s;}
-    
-    public ObservableList<PlayerModel>  Load() {
-        try {   
-            ObservableList<PlayerModel> TableData=FXCollections.observableArrayList();
-            Koneksi con = new Koneksi(); 
+
+    private PlayerModel dt = new PlayerModel();
+
+    public PlayerModel getPlayerModel() {
+        return (dt);
+    }
+
+    public void setPlayerModel(PlayerModel s) {
+        dt = s;
+    }
+
+    public ObservableList<PlayerModel> Load() {
+        try {
+            ObservableList<PlayerModel> TableData = FXCollections.observableArrayList();
+            Koneksi con = new Koneksi();
             con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             ResultSet rs = con.statement.executeQuery(
@@ -29,7 +36,7 @@ public class DBPlayer {
             );
             int i = 1;
             while (rs.next()) {
-                PlayerModel d=new PlayerModel();
+                PlayerModel d = new PlayerModel();
                 d.setPlayerId(rs.getInt("PlayerId"));
                 d.setName(rs.getString("Name"));
                 d.setGame1(rs.getInt("Game1"));
@@ -37,7 +44,7 @@ public class DBPlayer {
                 d.setGame3(rs.getInt("Game3"));
                 d.setGame4(rs.getInt("Game4"));
                 d.setGame5(rs.getInt("Game5"));
-                
+
                 TableData.add(d);
                 i++;
             }
@@ -48,11 +55,11 @@ public class DBPlayer {
             return null;
         }
     }
-    
+
     public boolean insert() {
-        boolean berhasil = false;    
+        boolean berhasil = false;
         Koneksi con = new Koneksi();
-        try {         
+        try {
             con.bukaKoneksi();
             con.preparedStatement = con.dbKoneksi.prepareStatement(
                     "insert into player (PlayerId, Name) values (?,?)");
@@ -60,16 +67,15 @@ public class DBPlayer {
             con.preparedStatement.setString(2, getPlayerModel().getName());
             con.preparedStatement.executeUpdate();
             berhasil = true;
-        } catch (Exception e) {            
-            e.printStackTrace();            
+        } catch (Exception e) {
+            e.printStackTrace();
             berhasil = false;
-        } finally {            
-            con.tutupKoneksi();            
-            return berhasil;        
+        } finally {
+            con.tutupKoneksi();
+            return berhasil;
         }
     }
-    
-    
+
     public boolean update() {
         boolean berhasil = false;
         Koneksi con = new Koneksi();
@@ -89,8 +95,7 @@ public class DBPlayer {
             return berhasil;
         }
     }
-    
-    
+
     public boolean delete(String nomor) {
         boolean berhasil = false;
         Koneksi con = new Koneksi();
@@ -109,23 +114,23 @@ public class DBPlayer {
             return berhasil;
         }
     }
-    
+
     public int validasi(int nomor) {
         int val = 0;
-        try {  
-            Koneksi con = new Koneksi();     
-            con.bukaKoneksi();   
+        try {
+            Koneksi con = new Koneksi();
+            con.bukaKoneksi();
             con.statement = con.dbKoneksi.createStatement();
             ResultSet rs = con.statement.executeQuery(
                     "select count(*) as jml from player where PlayerId = '" + nomor + "'");
-            while (rs.next()) {   
-                val = rs.getInt("jml");            
+            while (rs.next()) {
+                val = rs.getInt("jml");
             }
             con.tutupKoneksi();
         } catch (SQLException e) {
-            e.printStackTrace();        
+            e.printStackTrace();
         }
         return val;
-    }  
-    
+    }
+
 }

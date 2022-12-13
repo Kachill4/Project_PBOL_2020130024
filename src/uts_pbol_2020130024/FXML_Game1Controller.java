@@ -100,14 +100,8 @@ public class FXML_Game1Controller implements Initializable {
                                 "Waktunya Sudah Habis" + "\nKamu mendapatkan " + poin + " poin", ButtonType.OK);
                         al.showAndWait();
                         try {
-//                            Parent root = FXMLLoader.load(getClass().getResource("FXML_Menu.fxml"));
-//                            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                            Scene scene = new Scene(root);
-//                            stage.setScene(scene);
-//                            stage.show();
-
-                            txttime.getScene().getWindow().hide();
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_Menu.fxml"));
+                            txttime.getScene().getWindow().hide();
                             Parent root = (Parent) loader.load();
                             Scene scene = new Scene(root);
                             Stage stg = new Stage();
@@ -116,15 +110,12 @@ public class FXML_Game1Controller implements Initializable {
                             stg.setIconified(false);
                             stg.setScene(scene);
                             stg.show();
-
-
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 });
             }
-
         }, 0, 1000);
     }
 
@@ -193,6 +184,7 @@ public class FXML_Game1Controller implements Initializable {
                 }
             }
         }
+        
 
     }
 
