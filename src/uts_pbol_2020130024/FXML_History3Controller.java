@@ -5,6 +5,8 @@
 package uts_pbol_2020130024;
 
 import java.net.URL;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,18 +22,15 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import java.sql.Date;
-import java.sql.Time;
 
 /**
  * FXML Controller class
  *
  * @author ASUS GAMING
  */
-public class FXML_HistoryController implements Initializable {
-
+public class FXML_History3Controller implements Initializable {
+    
     @FXML
     private Button backbtn;
     
@@ -49,11 +48,10 @@ public class FXML_HistoryController implements Initializable {
         showdata();
     }    
     
-    int game = 1;
-    
+    int game = 3;
     
     public void showdata(){
-        ObservableList<HistoryModel> data=FXMLDocumentController.dthistory.Load();
+        ObservableList<HistoryModel> data=FXMLDocumentController.dthistory.Load3();
         if(data!=null){            
             tbvhistory.getColumns().clear();
             tbvhistory.getItems().clear();
@@ -96,5 +94,6 @@ public class FXML_HistoryController implements Initializable {
             e.printStackTrace();
         }
     }
+    
     
 }

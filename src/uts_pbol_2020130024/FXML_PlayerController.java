@@ -121,19 +121,22 @@ public class FXML_PlayerController implements Initializable {
     private void playklik(ActionEvent event) {
         int pilihan = tbvplayer.getSelectionModel().getSelectedCells().get(0).getRow();
         namahasil = tbvplayer.getItems().get(pilihan).getName();
+        int id = tbvplayer.getItems().get(pilihan).getPlayerId();
         if(hasil == 1){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_Menu.fxml"));
             Parent root = (Parent) loader.load();
+            FXML_MenuController setuserid = loader.getController();
+            setuserid.execute(id);
 //            Parent root = FXMLLoader.load(getClass().getResource("FXML_Menu.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            FXML_PlayerController isidt = (FXML_PlayerController) loader.getController();
-            if (isidt.getHasil() == 1) {
-                txtnama.setText(isidt.getNamahasil());
-            }
+//            //FXML_PlayerController isidt = (FXML_PlayerController) loader.getController();
+//            if (isidt.getHasil() == 1) {
+//                txtnama.setText(isidt.getNamahasil());
+//            }
             
         } catch (Exception e) {
             e.printStackTrace();

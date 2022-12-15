@@ -53,6 +53,15 @@ public class FXML_MenuHistoryController implements Initializable {
 
     @FXML
     private void hg3klik(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("FXML_History3.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
 }

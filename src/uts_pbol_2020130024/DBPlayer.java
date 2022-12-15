@@ -62,9 +62,14 @@ public class DBPlayer {
         try {
             con.bukaKoneksi();
             con.preparedStatement = con.dbKoneksi.prepareStatement(
-                    "insert into player (PlayerId, Name) values (?,?)");
+                    "insert into player (PlayerId, Name, Game1, Game2, Game3, Game4, Game5) values (?,?,?,?,?,?,?)");
             con.preparedStatement.setInt(1, getPlayerModel().getPlayerId());
             con.preparedStatement.setString(2, getPlayerModel().getName());
+            con.preparedStatement.setInt(3, getPlayerModel().getGame1());
+            con.preparedStatement.setInt(4, getPlayerModel().getGame2());
+            con.preparedStatement.setInt(5, getPlayerModel().getGame3());
+            con.preparedStatement.setInt(6, getPlayerModel().getGame4());
+            con.preparedStatement.setInt(7, getPlayerModel().getGame5());
             con.preparedStatement.executeUpdate();
             berhasil = true;
         } catch (Exception e) {

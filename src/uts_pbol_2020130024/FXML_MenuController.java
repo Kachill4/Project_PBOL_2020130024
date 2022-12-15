@@ -38,90 +38,100 @@ public class FXML_MenuController implements Initializable {
     @FXML
     private Button backbtn;
 
+    public PlayerModel pleyer = new PlayerModel();
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void game1klik(ActionEvent event) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("FXML_Game1.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        System.out.println(pleyer.getPlayerId());
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML_Game1.fxml"));
+//            FXML_MenuController setuserid = loader.getController();
+            Parent root = (Parent) loader.load();
+            FXML_Game1Controller gemone = loader.getController();
+            gemone.execute(pleyer.getPlayerId());
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @FXML
     private void game2klik(ActionEvent event) {
-        try{
+        try {
             Parent root = FXMLLoader.load(getClass().getResource("FXML_Game2.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @FXML
     private void game3klik(ActionEvent event) {
-        try{
+        try {
             Parent root = FXMLLoader.load(getClass().getResource("FXML_Game3.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @FXML
     private void game4klik(ActionEvent event) {
-        try{
+        try {
             Parent root = FXMLLoader.load(getClass().getResource("FXML_Game4.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @FXML
     private void game5klik(ActionEvent event) {
-        try{
+        try {
             Parent root = FXMLLoader.load(getClass().getResource("FXML_Game5.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @FXML
     private void backklik(ActionEvent event) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("FXML_Player.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
+    public void execute(int id) {
+        pleyer.setPlayerId(id);
+    }
 }

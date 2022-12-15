@@ -5,7 +5,9 @@
 package uts_pbol_2020130024;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Time;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,7 +21,8 @@ import javafx.application.Platform;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Time;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -28,6 +31,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Platform;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -64,9 +68,17 @@ public class FXML_Game1Controller implements Initializable {
     int answer = solve(x, y, operator);
     String question = x + " " + operator + " " + y + " = ";
 
-    int counter = 10;
+    public static DBHistory dthistory = new DBHistory();
+    
+    int counter = 60;
     Timer t = new Timer();
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy,hh:mm:ss");
+    SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+    SimpleDateFormat tgl = new SimpleDateFormat("");
+
+    Date tglmain = Date.valueOf(LocalDate.now());
+    Time waktumain = Time.valueOf(LocalTime.now());
+
+    HistoryModel pleyerhis = new HistoryModel();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -119,6 +131,7 @@ public class FXML_Game1Controller implements Initializable {
         }, 0, 1000);
     }
 
+    
     public static int number(int max, int min) {
         return (int) (Math.random() * (max - min) + min);
     }
@@ -170,8 +183,14 @@ public class FXML_Game1Controller implements Initializable {
 
                 txtscore.setText(String.valueOf(poin));
             } else {
+                pleyerhis.setHistoryId(dthistory.getLastId());
+                System.out.println(pleyerhis.getHistoryId());
+                dthistory.setHistoryModel(pleyerhis);
+                pleyerhis.setScore(poin);  dthistory.insert();
                 Alert al = new Alert(Alert.AlertType.ERROR,
                         "Jawaban Kamu Salah" + "\nKamu mendapatkan " + poin + " poin", ButtonType.OK);
+                dthistory.setHistoryModel(pleyerhis);
+              
                 al.showAndWait();
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("FXML_Menu.fxml"));
@@ -184,8 +203,14 @@ public class FXML_Game1Controller implements Initializable {
                 }
             }
         }
-        
 
+    }
+
+    public void execute(int id) {
+        pleyerhis.setGameMode(1);
+        pleyerhis.setPlayerId(id);
+        pleyerhis.setDate(tglmain);
+        pleyerhis.setTime(waktumain);
     }
 
 }

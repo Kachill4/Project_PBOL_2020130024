@@ -48,7 +48,6 @@ public class FXML_InputPlayerController implements Initializable {
     private Stage disStage;
     Stage stage;
     boolean status = false;
-    
 
     /**
      * Initializes the controller class.
@@ -58,13 +57,14 @@ public class FXML_InputPlayerController implements Initializable {
         // TODO
     }
 
-    int id=0;
-    public int tambahid(){
+    int id = 0;
+
+    public int tambahid() {
         int val = 0;
         try {
             Koneksi con = new Koneksi();
             con.bukaKoneksi();
-            con.statement = con.dbKoneksi.createStatement(); //ERROR
+            con.statement = con.dbKoneksi.createStatement();
             ResultSet rs = con.statement.executeQuery("select max(PlayerId) as jml from player");
             while (rs.next()) {
                 val = rs.getInt("jml");
@@ -76,7 +76,9 @@ public class FXML_InputPlayerController implements Initializable {
         id = val + 1;
         return id;
     }
-    
+
+    int nol = 0;
+
     @FXML
     private void simpanklik(ActionEvent event) {
         int NewId = tambahid();
@@ -84,51 +86,53 @@ public class FXML_InputPlayerController implements Initializable {
         PlayerModel s = new PlayerModel();
         s.setPlayerId(NewId);
         s.setName(txtnama.getText());
-        s.setGame1(0);
+        s.setGame1(nol);
         s.setGame2(0);
-        s.setGame3(0);
-        s.setGame4(0);
-        s.setGame5(0);
-        
-        FXMLDocumentController.dtplayer.setPlayerModel(s);
-        btnsimpan.getScene().getWindow().hide();
+        s.setGame3(1);
+        s.setGame4(1);
+        s.setGame5(1);
         
 
-        //UPDATE
+        FXMLDocumentController.dtplayer.setPlayerModel(s);
         if (editdata) {
-            if (FXMLDocumentController.dtplayer.update()) {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil diubah", ButtonType.OK);
-                a.showAndWait();
-                txtnama.setEditable(true);
-                batalklik1(event);
-            } else {
-                Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal diubah", ButtonType.OK);
-                a.showAndWait();
-            }
-        } else if (FXMLDocumentController.dtplayer.validasi(s.getPlayerId()) <= 0) {
-            if (FXMLDocumentController.dtplayer.insert()) {
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil disimpan", ButtonType.OK);
-                a.showAndWait();                
-            } else {
-                Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal disimpan", ButtonType.OK);
-                a.showAndWait();
-            }
-        } else {
-            Alert a = new Alert(Alert.AlertType.ERROR, "Data sudah ada", ButtonType.OK);
-            a.showAndWait();
-            txtnama.requestFocus();
+            FXMLDocumentController.dtplayer.insert();
+        System.out.println("www");
         }
-            //cancelklik(event);
+        //UPDATE
+//        if (editdata==true) {
+//            if (FXMLDocumentController.dtplayer.update()) {
+//                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil diubah", ButtonType.OK);
+//                a.showAndWait();
+//                txtnama.setEditable(true);
+//                batalklik1(event);
+//            } else {
+//                Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal diubah", ButtonType.OK);
+//                a.showAndWait();
+//            }
+//        } else if (FXMLDocumentController.dtplayer.validasi(s.getPlayerId()) <= 0) {
+//            if (FXMLDocumentController.dtplayer.insert()) {
+//                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil disimpan", ButtonType.OK);
+//                a.showAndWait();
+//            } else {
+//                Alert a = new Alert(Alert.AlertType.ERROR, "Data gagal disimpan", ButtonType.OK);
+//                a.showAndWait();
+//            }
+//        } else {
+//            Alert a = new Alert(Alert.AlertType.ERROR, "Data sudah ada", ButtonType.OK);
+//            a.showAndWait();
+//            txtnama.requestFocus();
+//        }
+        btnsimpan.getScene().getWindow().hide();
     }
 
     @FXML
     private void cancelklik(ActionEvent event) {
 //       stage.close();
-            btncancel.getScene().getWindow().hide();
+        btncancel.getScene().getWindow().hide();
     }
-    
-    
-    boolean editdata = false;
+
+    boolean editdata = true;
+
     public void execute(PlayerModel d) {
         if (!d.getName().isEmpty()) {
             editdata = true;
@@ -139,10 +143,7 @@ public class FXML_InputPlayerController implements Initializable {
             btnbatal.setDisable(true);
         }
     }
-    
 
-    
-   
     @FXML
     private void batalklik(ActionEvent event) {
         txtid.clear();
@@ -152,6 +153,5 @@ public class FXML_InputPlayerController implements Initializable {
     private void batalklik1(ActionEvent event) {
         txtnama.clear();
     }
-
 
 }
